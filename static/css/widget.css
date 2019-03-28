@@ -30,7 +30,7 @@ p {
     height: 80%;
     width: 25%;
     float: right;
-    padding: 120px 0 0 0;
+    padding: 110px 0 0 0;
 }
 
 .bottom {
@@ -92,7 +92,7 @@ h3 {
 
 #time {
     font-weight: 400;
-    font-size: 150px;
+    font-size: 160px;
     margin-top: 20px;
 }
 
@@ -138,9 +138,9 @@ h3 {
 
 
 #temperature-now {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
-    font-size: 75px;
+    font-size: 100px;
 }
 
 #temperature {

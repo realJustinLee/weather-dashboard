@@ -32,17 +32,22 @@ $(function () {
         value: 0,
         min: 0,
         max: 300,
+        title: "空气指数",
+        label: "AQI",
         pointer: true,
         pointerOptions: {
-            toplength: 8,
-            bottomlength: -20,
-            bottomwidth: 6,
-            color: '#8e8e93'
+            toplength: 0,
+            bottomlength: 20,
+            bottomwidth: 5,
+            color: '#ff0000',
+            stroke: '#3b3b3b',
+            stroke_width: 2,
+            stroke_linecap: 'round'
         },
         gaugeWidthScale: 0.4,
-        hideMinMax: true,
+        hideMinMax: false,
         valueFontColor: "white",
-        valueMinFontSize: 24,
+        valueMinFontSize: 40,
         customSectors: [{
             color: "#00ff00",
             lo: 0,
@@ -64,7 +69,7 @@ $(function () {
             lo: 200,
             hi: 300
         }],
-        counter: false
+        counter: true
     });
     setData();
     setAQI();
