@@ -1,6 +1,8 @@
 # Weather Dashboard
 The Weather Dashboard presented on my Raspberry Pi in my dormitory
 
+![](./img/ScreenShot.png)
+
 # Installation
 ```
 git clone https://github.com/Great-Li-Xin/weather-dashboard.git
