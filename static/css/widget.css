@@ -1,0 +1,170 @@
+body {
+  background-color: #222233;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+p {
+  font-size:18px;
+  text-align:center;
+  margin-bottom: 0;
+}
+
+.widget-container {
+  width: 760px;
+  height: 460px;
+  display: block;
+}
+
+
+/* division into 4 sections */
+
+.top-left {
+  height: 80%;
+  width: 70%;
+  padding: 5px 0 0 0;
+  display: inline-block;
+}
+
+.top-right {
+  height: 80%;
+  width: 30%;
+  float: right;
+  padding: 55px 0 0 0;
+}
+
+.bottom {
+  height: 20%;
+  /*margin: 0;*/
+  /*padding: 40px 0 0 50px;*/
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+hr {
+  height: 1px;
+  background: white;
+  border: none;
+  outline: none;
+  margin-top: 0;
+  margin-bottom: 10px;
+  
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #3498db), color-stop(50%, #10d7af), color-stop(100%, #3498db));
+  background-image: -webkit-linear-gradient(left, #3498db, #10d7af, #3498db);
+  background-image: linear-gradient(to right, #3498db, #10d7af, #3498db);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* top-left */
+
+#city {
+  font-weight: 900;
+  font-size: 25px;
+}
+
+#day {
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 18px;
+}
+
+#date {
+  /*font-weight: 500;*/
+  font-size: 26px;
+  margin-top: 30px;
+}
+
+#time {
+  font-weight: 400;
+  font-size: 120px;
+  margin-top: 15px;
+}
+
+.top-left > a {
+  text-decoration: none;
+  color: white;
+}
+
+.top-left > a:hover {
+  color: #b0bec5;
+}
+
+.top-date {
+    margin:0 auto;  
+    padding:0;  
+    clear:both;  
+}
+
+.top-aqi {
+    margin:0;  
+    padding:0;  
+    display:inline-block;  
+    _display:inline;  
+    *display:inline;  
+    zoom:1;
+}
+
+/* top-right */
+
+#weather-status {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  /*margin-top: 30px;*/
+}
+
+.weather-icon {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 15px auto 0 auto;
+}
+
+
+
+#temperature-now {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 60px;
+}
+
+#temperature {
+  font-size: 60px;
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+#pm25 {
+  text-align: center;
+}
+
+/* bottom-right */
+
+.other-details-key {
+  float: left;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.other-details-values {
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 40px;
+}
+
+.icon-wrapper {
+    font-size: 30px;
+    text-align: center;
+}

@@ -1,0 +1,56 @@
+<?xml-stylesheet type="text/css"?>
+<svg id="SVGWI04" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+	<defs>
+		<!-- Cloud 1 Color  -->
+		<radialGradient id="SVGWI04_cloud_color" cx="60%" cy="20%" r="100%">
+			<stop offset="0%" stop-color="#FFFFFF" class="svgwi-cloud-color1"/>
+			<stop offset="30%" stop-color="#92a1a8" class="svgwi-cloud-color2"/>           
+			<stop offset="75%" stop-color="#303438" class="svgwi-cloud-color3"/>
+		</radialGradient>
+		
+		<!-- Cloud 2 Color  -->
+		<radialGradient id="SVGWI04_cloud_color2" cx="50%" cy="10%" r="100%" xlink:href="#SVGWI04_cloud_color" />
+		
+		<!-- Cloud 3 Color  -->
+		<radialGradient id="SVGWI04_cloud_color3" cx="40%" cy="5%" r="100%" xlink:href="#SVGWI04_cloud_color" />
+		
+		<!-- Part of Cloud  -->
+		<path id="SVGWI04_cloud_part" fill="#FFFFFF" d="M19.527-5.251C18.24-9.21,14.581-11.87,10.42-11.87c-0.324,0-0.646,0.023-0.967,0.055
+		c-0.885-4.372-4.756-7.673-9.385-7.673c-4.634,0-8.509,3.309-9.388,7.688c-0.366-0.042-0.733-0.071-1.101-0.071
+		c-4.161,0-7.82,2.658-9.105,6.617c-0.791,2.433-0.586,5.025,0.575,7.305c0.848,1.663,2.132,3.008,3.709,3.923
+		c-0.738,1.667-0.985,3.513-0.693,5.357c0.4,2.526,1.76,4.746,3.829,6.249c1.647,1.196,3.591,1.83,5.623,1.83
+		c2.374,0,4.648-0.892,6.388-2.446c1.751,1.604,4.063,2.525,6.477,2.525c2.031,0,3.976-0.632,5.623-1.829
+		c3.711-2.696,4.913-7.578,3.13-11.614c1.626-0.916,2.95-2.289,3.817-3.99C20.113-0.224,20.317-2.819,19.527-5.251z"
+		/>
+		
+		<!-- Cloud Set (3 Parts assembled)  -->
+		<clipPath id="SVGWI04_cloud">
+			<use x="28" y="52" xlink:href="#SVGWI04_cloud_part" />
+			<use x="72" y="52" xlink:href="#SVGWI04_cloud_part" />
+			<use x="-35" y="-33" xlink:href="#SVGWI04_cloud_part" transform="scale(1.4) rotate(180)" />           
+		</clipPath>
+		
+		<!-- Cloud Set Small (2 Parts assembled)  -->
+		<clipPath id="SVGWI04_cloud_small">
+			<use x="110" y="92" xlink:href="#SVGWI04_cloud_part" transform="scale(.7)" />
+			<use x="85" y="62" xlink:href="#SVGWI04_cloud_part" transform="scale(.85)" />
+			<use x="50" y="5" xlink:href="#SVGWI04_cloud_part" transform="scale(1.4) rotate(36)" />						
+		</clipPath>	
+		
+		<clipPath id="SVGWI04_cloud_small2">
+			<use x="20" y="45" xlink:href="#SVGWI04_cloud_part" />
+			<use x="36" y="52" xlink:href="#SVGWI04_cloud_part" />         
+		</clipPath>
+				
+	</defs>
+	
+	<!-- Small and big cloud sets. all inserted here as clip path -->
+	<rect width="100" height="100" fill="url(#SVGWI04_cloud_color2)" clip-path="url(#SVGWI04_cloud_small)" transform="translate(3, 0)" />	
+	<rect width="100" height="100" fill="url(#SVGWI04_cloud_color3)" clip-path="url(#SVGWI04_cloud_small2)" transform="translate(52, 22) scale(.8)" />	
+	<rect width="100" height="100" fill="url(#SVGWI04_cloud_color)" clip-path="url(#SVGWI04_cloud)" transform="translate(-2, 20) scale(.85)" />	
+	
+	<!-- JavaScript takes care the entire animation part -->
+	<script type="text/javascript"><![CDATA[
+		!function(){function g(){requestAnimationFrame(g),e+=a,f.setAttribute("transform","rotate("+e+")")}for(var a=.5,b=0,c=["ms","moz","webkit","o"],d=0;d<c.length&&!window.requestAnimationFrame;++d)window.requestAnimationFrame=window[c[d]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[c[d]+"CancelAnimationFrame"]||window[c[d]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,c){var d=(new Date).getTime(),e=Math.max(0,16-(d-b)),f=window.setTimeout(function(){a(d+e)},e);return b=d+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)});var e=0,f=document.getElementById("SVGWI04_cloud_part");g()}();
+	]]></script>
+</svg>
