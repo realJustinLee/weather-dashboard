@@ -22,7 +22,7 @@ p {
 .top-left {
   height: 80%;
   width: 70%;
-  padding: 5px 0 0 0;
+  padding: 20px 0 0 0;
   display: inline-block;
 }
 
@@ -45,7 +45,7 @@ p {
 }
 
 hr {
-  height: 1px;
+  height: 3px;
   background: white;
   border: none;
   outline: none;
@@ -53,9 +53,9 @@ hr {
   margin-bottom: 10px;
   
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c17332), color-stop(50%, #f1bc4a), color-stop(100%, #c17332));
-  background-image: -webkit-linear-gradient(left, #c17332, #f1bc4a, #c17332);
-  background-image: linear-gradient(to right, #c17332, #f1bc4a, #c17332);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #0000ff), color-stop(50%, #00ffff), color-stop(100%, #0000ff));
+  background-image: -webkit-linear-gradient(left, #0000ff, #00ffff, #0000ff);
+  background-image: linear-gradient(to right, #0000ff, #00ffff, #0000ff);
 }
 
 h1,

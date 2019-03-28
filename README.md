@@ -1,4 +1,12 @@
-# weather-dashboard
-The weather dashboard meant to run on RSBP
+# Weather Dashboard
+The Weather Dashboard presented on my Raspberry Pi in my dormitory
 
-# Re-construct with BootStrap 4
+# Installation
+```
+git clone https://github.com/Great-Li-Xin/weather-dashboard.git
+python3 -m http.server
+chromium-browser --kiosk "0.0.0.0:8000"
+```
+
+# TODO
+- [ ] Re-construct with BootStrap 4

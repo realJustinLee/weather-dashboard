@@ -1,11 +1,14 @@
 const he_key = "53de4cf13c644f7b92924b934d7c3610";
-const city = "浦东";
+const city = "上海";
+const station = "浦东新区监测站";
+
+let aqi_indicator;
 
 $(function () {
     // clock
-    let clock = setInterval(setTime, 1000);
-    let data = setInterval(setData, 1000 * 60 * 10);
-    let aqi = setInterval(setAQI, 1000 * 60 * 10);
+    setInterval(setTime, 1000);
+    setInterval(setData, 1000 * 60 * 10);
+    setInterval(setAQI, 1000 * 60 * 10);
     let $time = $('#time');
     let $date = $('#date');
     let $cnDate = $('#cnDate');
@@ -22,9 +25,10 @@ $(function () {
         }
         $cnDate.html("农历 " + cnDateText)
     }
-    new JustGage({
-        id: "jg1",
-        value: 72,
+
+    aqi_indicator = new JustGage({
+        id: "aqi-indicator",
+        value: 0,
         min: 0,
         max: 300,
         pointer: true,
@@ -103,7 +107,7 @@ function setData() {
         // 当前
         let now = result.now;
         $("#temperature-now").text(now.tmp);
-        $("#temperature-now").append("<sup><small>°C</small> </sup>");
+        $("#temperature-now").append("<sup><small>°C</small></sup>");
 
         let icon_link_head = '<img src="./static/img/';
         let icon_link_tail = '.png" height="70" width="70"</img>';
@@ -129,8 +133,7 @@ function setData() {
             $(".wind" + i).text(forecast[i].wind_dir + forecast[i].wind_sc + "级");
             $("#icon" + i).html(icon);
         }
-    });``
-
+    });
 }
 
 function setAQI() {
@@ -139,6 +142,11 @@ function setAQI() {
         console.log(data);
         let result = data.HeWeather6[0];
         // AQI
-        jg.refresh(result.air_now_city.aqi);
+        for (let i = 0; i < result.air_now_station.length; i++) {
+            let v = result.air_now_station[i];
+            if (v.air_sta === station) {
+                aqi_indicator.refresh(v.aqi);
+            }
+        }
     });
 }
