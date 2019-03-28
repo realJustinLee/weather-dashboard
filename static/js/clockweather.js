@@ -39,8 +39,8 @@ $(function () {
             toplength: 0,
             bottomlength: 20,
             bottomwidth: 5,
-            color: '#ff0000',
-            stroke: '#3b3b3b',
+            color: '#ffffff',
+            stroke: '#5a5a5a',
             stroke_width: 2,
             stroke_linecap: 'round'
         },

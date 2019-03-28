@@ -1,5 +1,5 @@
 body {
-    background-color: #151515;
+    background-color: #000;
     font-family: Futura, Helvetica, Arial, sans-serif;
     color: #fff;
 }
@@ -53,9 +53,9 @@ hr {
     margin-bottom: 10px;
 
     background-size: 100%;
-    background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff0000), color-stop(50%, #ffffff), color-stop(100%, #0000ff));
-    background-image: -webkit-linear-gradient(left, #ff0000, #ffffff, #0000ff);
-    background-image: linear-gradient(to right, #ff0000, #ffffff, #0000ff);
+    background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #0000ff), color-stop(50%, #00ffff), color-stop(100%, #0000ff));
+    background-image: -webkit-linear-gradient(left, #0000ff, #00ffff, #0000ff);
+    background-image: linear-gradient(to right, #0000ff, #00ffff, #0000ff);
 }
 
 h1,
