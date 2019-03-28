@@ -1,18 +1,18 @@
 body {
-  background-color: #222233;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  background-color: #151515;
+  font-family: Futura, Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
 p {
-  font-size:18px;
+  font-size:20px;
   text-align:center;
   margin-bottom: 0;
 }
 
 .widget-container {
-  width: 760px;
-  height: 460px;
+  width: 100%;
+  height: 100%;
   display: block;
 }
 
@@ -53,9 +53,9 @@ hr {
   margin-bottom: 10px;
   
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #3498db), color-stop(50%, #10d7af), color-stop(100%, #3498db));
-  background-image: -webkit-linear-gradient(left, #3498db, #10d7af, #3498db);
-  background-image: linear-gradient(to right, #3498db, #10d7af, #3498db);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c17332), color-stop(50%, #f1bc4a), color-stop(100%, #c17332));
+  background-image: -webkit-linear-gradient(left, #c17332, #f1bc4a, #c17332);
+  background-image: linear-gradient(to right, #c17332, #f1bc4a, #c17332);
 }
 
 h1,
