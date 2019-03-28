@@ -1,6 +1,7 @@
 const he_key = "53de4cf13c644f7b92924b934d7c3610";
 const city = "上海";
 const station = "浦东新区监测站";
+const district = "浦东新区";
 
 let aqi_indicator;
 
@@ -11,19 +12,19 @@ $(function () {
     setInterval(setAQI, 1000 * 60 * 10);
     let $time = $('#time');
     let $date = $('#date');
-    let $cnDate = $('#cnDate');
+    let $lunar_date = $('#lunar-date');
 
     function setTime() {
-        moment.locale('zh-cn');
-        let cn_date = calendar.solar2lunar();
+        moment.locale('zh-CN');
+        let lunar_cal = calendar.solar2lunar();
         $time.html(moment().format('HH:mm:ss'));
         $date.html(moment().format('LL dddd'));
-        let cnDateText = cn_date.IMonthCn + cn_date.IDayCn;
+        let lunar_date_txt = lunar_cal.IMonthCn + lunar_cal.IDayCn;
         // 判断是否节气
-        if (cn_date.isTerm) {
-            cnDateText = cnDateText + cn_date.Term;
+        if (lunar_cal.isTerm) {
+            lunar_date_txt = lunar_date_txt + lunar_cal.Term;
         }
-        $cnDate.html("农历 " + cnDateText)
+        $lunar_date.html("农历 " + lunar_date_txt)
     }
 
     aqi_indicator = new JustGage({
@@ -77,7 +78,7 @@ function setData() {
         let result = data.HeWeather6[0];
 
         // city: "浦东新区",
-        $("#city").text(result.basic.city);
+        $("#city").text(result.basic.location + ' · ' + district);
 
         // 天气动画
         let code = result.now.cond_code;
@@ -106,11 +107,12 @@ function setData() {
 
         // 当前
         let now = result.now;
-        $("#temperature-now").text(now.tmp);
-        $("#temperature-now").append("<sup><small>°C</small></sup>");
+        let $temperature_now = $("#temperature-now");
+        $temperature_now.text(now.tmp);
+        $temperature_now.append("<sup><small>°C</small></sup>");
 
         let icon_link_head = '<img src="./static/img/';
-        let icon_link_tail = '.png" height="70" width="70"</img>';
+        let icon_link_tail = '.png" height="150" width="150"</img>';
         let forecast = result.daily_forecast;
         let txt;
         let icon;
@@ -128,7 +130,7 @@ function setData() {
                 icon = icon_link_head + forecast[i].cond_code_d + icon_link_tail;
             }
             $(".weather" + i).text(txt);
-            $(".temp" + i).text(forecast[i].tmp_min + "℃ / " + forecast[i].tmp_max + "℃");
+            $(".temp" + i).text(forecast[i].tmp_min + "°C / " + forecast[i].tmp_max + "°C");
             //"wind": "东风3-4级", TODO 也可能是“东北风微风”，不应该加“级”
             $(".wind" + i).text(forecast[i].wind_dir + forecast[i].wind_sc + "级");
             $("#icon" + i).html(icon);
