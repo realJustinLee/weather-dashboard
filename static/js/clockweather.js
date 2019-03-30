@@ -117,7 +117,7 @@ function setData() {
         $temperature_now.append("<sup><small>°C</small></sup>");
 
         let icon_link_head = '<img src="./static/img/';
-        let icon_link_tail = '.png" height="150" width="150"</img>';
+        let icon_link_tail = '.png" height="135" width="135"</img>';
         let forecast = result.daily_forecast;
         let txt;
         let icon;
