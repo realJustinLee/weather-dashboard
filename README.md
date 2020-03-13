@@ -1,5 +1,5 @@
 # Weather Dashboard
-The Weather Dashboard presented on my Raspberry Pi in my dormitory
+A simple HTML & CSS based weather dashboard used to be loaded on the raspberry pi in my university dormitory.
 
 ![](./img/ScreenShot.png)
 
