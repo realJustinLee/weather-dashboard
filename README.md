@@ -5,7 +5,7 @@ A simple HTML & CSS based weather dashboard used to be loaded on the raspberry p
 
 # Installation
 ```
-git clone https://github.com/Great-Li-Xin/weather-dashboard.git
+git clone https://github.com/realJustinLee/weather-dashboard.git
 cd weather-dashboard
 python3 -m http.server
 chromium-browser --kiosk "0.0.0.0:8000"
