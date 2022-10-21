@@ -11,5 +11,5 @@ python3 -m http.server
 chromium-browser --kiosk "0.0.0.0:8000"
 ```
 
-# TODO
-- [ ] Re-construct with BootStrap 4
+# Notice
+This branch is deprecated and discontinued
