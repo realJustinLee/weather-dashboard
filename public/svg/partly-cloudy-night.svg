@@ -1,0 +1,50 @@
+<?xml-stylesheet type="text/css"?>
+<svg id="SVGWI12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+	<defs>
+		<!-- Moon Color  -->
+		<linearGradient id="SVGWI12_moon_color" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" stop-color="#e5eb82" class="svgwi-moon-color1" />
+           <stop offset="100%" stop-color="#fad100" class="svgwi-moon-color2" />
+		</linearGradient>
+
+		<!-- Cloud 1 Color  -->
+		<radialGradient id="SVGWI12_cloud_color" cx="60%" cy="20%" r="100%">
+			<stop offset="0%" stop-color="#FFFFFF" class="svgwi-cloud-color1"/>
+			<stop offset="30%" stop-color="#c9d7dd" class="svgwi-cloud-color2"/>
+			<stop offset="75%" stop-color="#b8bfc7" class="svgwi-cloud-color3"/>
+		</radialGradient>
+
+		<!-- Moon masked for crescent  -->
+		<mask id="SVGWI12_moon_mask" >
+			<circle fill="#ffffff" cx="50" cy="50" r="18"/>
+			<circle id="SVGWI12_moon_eclipse" fill="#000000" cx="70" cy="38" r="18"/>
+		</mask>
+
+		<!-- Part of Cloud  -->
+		<path id="SVGWI12_cloud_part" fill="#FFFFFF" d="M19.527-5.251C18.24-9.21,14.581-11.87,10.42-11.87c-0.324,0-0.646,0.023-0.967,0.055
+		c-0.885-4.372-4.756-7.673-9.385-7.673c-4.634,0-8.509,3.309-9.388,7.688c-0.366-0.042-0.733-0.071-1.101-0.071
+		c-4.161,0-7.82,2.658-9.105,6.617c-0.791,2.433-0.586,5.025,0.575,7.305c0.848,1.663,2.132,3.008,3.709,3.923
+		c-0.738,1.667-0.985,3.513-0.693,5.357c0.4,2.526,1.76,4.746,3.829,6.249c1.647,1.196,3.591,1.83,5.623,1.83
+		c2.374,0,4.648-0.892,6.388-2.446c1.751,1.604,4.063,2.525,6.477,2.525c2.031,0,3.976-0.632,5.623-1.829
+		c3.711-2.696,4.913-7.578,3.13-11.614c1.626-0.916,2.95-2.289,3.817-3.99C20.113-0.224,20.317-2.819,19.527-5.251z"
+		/>
+
+		<!-- Cloud Set (3 Parts assembled)  -->
+		<clipPath id="SVGWI12_cloud">
+			<use x="28" y="52" xlink:href="#SVGWI12_cloud_part" />
+			<use x="72" y="52" xlink:href="#SVGWI12_cloud_part" />
+			<use x="-35" y="-35" xlink:href="#SVGWI12_cloud_part" transform="scale(1.4) rotate(180)" />
+		</clipPath>
+	</defs>
+
+	<!-- Crescent Moon  -->
+	<circle id="SVGWI12_moon" width="36" height="36" fill="url(#SVGWI12_moon_color)" cx="50" cy="50" r="18" mask="url(#SVGWI12_moon_mask)" transform="rotate(0 75,25) translate(25, -25)"/>
+
+	<!-- Cloud inserted here as clip path -->
+	<rect width="100" height="100" fill="url(#SVGWI12_cloud_color)" clip-path="url(#SVGWI12_cloud)" transform="translate(-3, 15) scale(.95)" />
+
+	<!-- JavaScript takes care the entire animation part -->
+	<script type="text/javascript"><![CDATA[
+		!function(){function n(){requestAnimationFrame(n),i+=b,h.setAttribute("transform","rotate("+i+")"),(j>l||l>k)&&(m*=-1),l+=a*m,f.setAttribute("transform","rotate("+l+" 75,25) translate(25, -25)"),g.setAttribute("cx",60+l/6)}for(var a=.5,b=.5,c=0,d=["ms","moz","webkit","o"],e=0;e<d.length&&!window.requestAnimationFrame;++e)window.requestAnimationFrame=window[d[e]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[d[e]+"CancelAnimationFrame"]||window[d[e]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,b){var d=(new Date).getTime(),e=Math.max(0,16-(d-c)),f=window.setTimeout(function(){a(d+e)},e);return c=d+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)});var f=document.getElementById("SVGWI12_moon"),g=document.getElementById("SVGWI12_moon_eclipse"),h=document.getElementById("SVGWI12_cloud_part"),i=0,j=-20,k=20,l=j,m=1;n()}();
+	]]></script>
+</svg>

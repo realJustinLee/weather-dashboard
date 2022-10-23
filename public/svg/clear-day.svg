@@ -1,0 +1,46 @@
+<?xml-stylesheet type="text/css"?>
+<svg id="SVGWI01" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+	<defs>
+		<!-- Sun Circle Color  -->
+		<linearGradient id="SVGWI01_sun_color" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" stop-color="#FAE000" class="svgwi-sun-circle-color1" />
+           <stop offset="100%" stop-color="#FA7300" class="svgwi-sun-circle-color2" />
+		</linearGradient>
+		
+		<!-- Sun Rays  -->
+		<path id="SVGWI01_ray1" fill="none" stroke="#FFD800" stroke-width="5" stroke-linecap="round" transform="translate(0,23)" class="svgwi-sun-ray1"  d="M-0.001,13.148 c4.223-4.622-4.22-8.528,0-13.148"/>
+		<path id="SVGWI01_ray2" fill="none" stroke="#FFA200" stroke-width="5" stroke-linecap="round" transform="translate(0,23)" class="svgwi-sun-ray2"  d="M-0.001,13.148 c-4.22-4.621,4.223-8.526,0-13.148"/>    
+	</defs>
+
+	<!-- Sun Circle  -->
+	<circle fill="url(#SVGWI01_sun_color)" cx="50" cy="50" r="18"/>
+	
+	<!-- Sun Rays Group. The set of 20 rays, rotated each with multiples of 18 degrees. "SVGWI01_ray1" and "SVGWI01_ray2" are shapped and colored differently -->
+	<g id="SVGWI01_ray_set" transform="translate(50,50)">
+		<use transform="rotate(0)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(36)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(72)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(108)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(144)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(180)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(216)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(252)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(288)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(324)" xlink:href="#SVGWI01_ray1" />
+		<use transform="rotate(18)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(54)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(90)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(126)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(162)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(198)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(234)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(270)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(306)" xlink:href="#SVGWI01_ray2" />
+		<use transform="rotate(342)" xlink:href="#SVGWI01_ray2" />
+	</g>
+	 
+	<!-- JavaScript takes care the entire animation part -->
+	<script type="text/javascript"><![CDATA[
+		!function(){function j(a){f[a].curLength+=(f[a].curTarget-f[a].curLength)/b,f[a].target.setAttribute("stroke-dashoffset",f[a].curLength),f[a].curLength>f[a].curTarget-.3&&f[a].curLength<f[a].curTarget+.3&&(f[a].curTarget==2*i?f[a].curTarget=i:f[a].curTarget=2*i)}function k(){requestAnimationFrame(k),j(0),j(1),h.transform.baseVal.appendItem(g.createSVGTransformFromMatrix(g.createSVGMatrix().rotate(a)))}for(var a=.5,b=.5,c=0,d=["ms","moz","webkit","o"],e=0;e<d.length&&!window.requestAnimationFrame;++e)window.requestAnimationFrame=window[d[e]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[d[e]+"CancelAnimationFrame"]||window[d[e]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,b){var d=(new Date).getTime(),e=Math.max(0,16-(d-c)),f=window.setTimeout(function(){a(d+e)},e);return c=d+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)}),b=Math.max(1/b*7,3);var f=[],g=document.getElementById("SVGWI01"),h=document.getElementById("SVGWI01_ray_set"),i=document.getElementById("SVGWI01_ray1").getTotalLength();f.push({curLength:i,curTarget:i,target:document.getElementById("SVGWI01_ray1")}),f.push({curLength:2*i,curTarget:2*i,target:document.getElementById("SVGWI01_ray2")}),f[0].target.setAttribute("stroke-dasharray",i),f[0].target.setAttribute("stroke-dashoffset",i),f[1].target.setAttribute("stroke-dasharray",i),f[1].target.setAttribute("stroke-dashoffset",i),k()}();		
+    ]]></script>
+</svg>

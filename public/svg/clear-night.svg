@@ -1,0 +1,46 @@
+<?xml-stylesheet type="text/css"?>
+<svg id="SVGWI11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+	<defs>
+		<!-- Moon Color  -->
+		<linearGradient id="SVGWI11_moon_color" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" stop-color="#e5eb82" class="svgwi-moon-color1" />
+           <stop offset="100%" stop-color="#fad100" class="svgwi-moon-color2" />
+		</linearGradient>
+
+		<!-- Moon masked for crescent  -->
+		<mask id="SVGWI11_moon_mask" >
+			<circle fill="#ffffff" cx="50" cy="50" r="24"/>
+			<circle id="SVGWI11_moon_eclipse" fill="#000000" cx="70" cy="38" r="24"/>
+		</mask>
+
+		<!-- Star Shape  -->
+		<polygon id="SVGWI11_star_shape" points="0,-10.794 3.507,-3.688 11.35,-2.548 5.675,2.983 7.015,10.794 0,7.106 -7.015,10.794 -5.675,2.983 -11.35,-2.548 -3.507,-3.688" />
+
+		<!-- 3 Star. Each star has 2 copies one another for color transition  -->
+		<g id="SVGWI11_star_group1">
+			<use fill="#4DB4FA" class="svgwi-star-color2" xlink:href="#SVGWI11_star_shape" />
+			<use id="SVGWI11_star_top1" fill="#FFFEA2" class="svgwi-star-color1" xlink:href="#SVGWI11_star_shape" />
+		</g>
+		<g id="SVGWI11_star_group2">
+			<use fill="#FFFEA2" class="svgwi-star-color1" xlink:href="#SVGWI11_star_shape" />
+			<use id="SVGWI11_star_top2" fill="#4DB4FA" class="svgwi-star-color2" xlink:href="#SVGWI11_star_shape" />
+		</g>
+		<g id="SVGWI11_star_group3">
+			<use fill="#4DB4FA" class="svgwi-star-color2" xlink:href="#SVGWI11_star_shape" />
+			<use id="SVGWI11_star_top3" fill="#FFFEA2" class="svgwi-star-color1" xlink:href="#SVGWI11_star_shape" />
+		</g>
+	</defs>
+
+	<!-- Crescent Moon  -->
+	<circle id="SVGWI11_moon" width="48" height="48" fill="url(#SVGWI11_moon_color)" cx="50" cy="50" r="24" mask="url(#SVGWI11_moon_mask)" transform="rotate(0 50,50) translate(0, 10)"/>
+
+	<!-- 3 Stars  -->
+	<use xlink:href="#SVGWI11_star_group1" transform="translate(20, 30)"/>
+	<use xlink:href="#SVGWI11_star_group2" transform="translate(55, 20) scale(-.4, .4) rotate(36)"/>
+	<use xlink:href="#SVGWI11_star_group3" transform="translate(75, 40) scale(-.6, .6)"/>
+
+	<!-- JavaScript takes care the entire animation part -->
+	<script type="text/javascript"><![CDATA[
+		!function(){function v(){requestAnimationFrame(v),o+=(p-o)/c,1==p&&o>.995?p=0:0==p&&.005>o&&(p=1),q+=b,i.setAttribute("transform","rotate("+q+") scale("+(.2*o+.8)+")"),j.setAttribute("transform","rotate("+q+") scale("+(.2*Math.abs(1-o)+.8)+")"),k.setAttribute("transform","rotate("+q+") scale("+(.2*o+.8)+")"),l.setAttribute("fill-opacity",1-o),m.setAttribute("fill-opacity",1-o),n.setAttribute("fill-opacity",1-o),(r>t||t>s)&&(u*=-1),t+=a*u,g.setAttribute("transform","rotate("+t+" 50,55) translate(0, 5)"),h.setAttribute("cx",70+t/3)}for(var a=.5,b=.5,c=.5,d=0,e=["ms","moz","webkit","o"],f=0;f<e.length&&!window.requestAnimationFrame;++f)window.requestAnimationFrame=window[e[f]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[e[f]+"CancelAnimationFrame"]||window[e[f]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,b){var c=(new Date).getTime(),e=Math.max(0,16-(c-d)),f=window.setTimeout(function(){a(c+e)},e);return d=c+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)});var g=document.getElementById("SVGWI11_moon"),h=document.getElementById("SVGWI11_moon_eclipse"),i=document.getElementById("SVGWI11_star_group1"),j=document.getElementById("SVGWI11_star_group2"),k=document.getElementById("SVGWI11_star_group3"),l=document.getElementById("SVGWI11_star_top1"),m=document.getElementById("SVGWI11_star_top2"),n=document.getElementById("SVGWI11_star_top3");b*=2,c=Math.max(1/c*7,3);var o=0,p=1,q=0,r=-20,s=20,t=r,u=1;v()}();
+    ]]></script>
+</svg>

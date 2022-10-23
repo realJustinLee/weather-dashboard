@@ -1,0 +1,11 @@
+hr {
+    height: 0.3rem;
+    background: white;
+    border: none;
+    outline: none;
+
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #0000ff), color-stop(50%, #00ffff), color-stop(100%, #0000ff));
+    background-image: -webkit-linear-gradient(left, #0000ff, #00ffff, #0000ff);
+    background-image: linear-gradient(to right, #0000ff, #00ffff, #0000ff);
+}

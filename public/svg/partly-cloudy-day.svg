@@ -1,0 +1,72 @@
+<?xml-stylesheet type="text/css"?>
+<svg id="SVGWI02" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+	<defs>
+		<!-- Cloud 1 Color  -->
+		<radialGradient id="SVGWI02_cloud_color" cx="60%" cy="20%" r="100%">
+			<stop offset="0%" stop-color="#FFFFFF" class="svgwi-cloud-color1"/>
+			<stop offset="30%" stop-color="#c9d7dd" class="svgwi-cloud-color2"/>
+			<stop offset="75%" stop-color="#b8bfc7" class="svgwi-cloud-color3"/>
+		</radialGradient>
+
+		<!-- Sun Circle Color  -->
+		<linearGradient id="SVGWI02_sun_color" x1="0%" y1="0%" x2="0%" y2="100%">
+           <stop offset="0%" stop-color="#FAE000" class="svgwi-sun-circle-color1"/>
+           <stop offset="100%" stop-color="#FA7300" class="svgwi-sun-circle-color2" />
+		</linearGradient>
+
+		<!-- Sun Rays  -->
+		<path id="SVGWI02_ray1" fill="none" stroke="#FFD800" stroke-width="4" stroke-linecap="round" transform="translate(0,16)" class="svgwi-sun-ray1"  d="M 0 10 L 0 0"/>
+		<path id="SVGWI02_ray2" fill="none" stroke="#FFA200" stroke-width="4" stroke-linecap="round" transform="translate(0,16)" class="svgwi-sun-ray2"  d="M 0 10 L 0 0"/>
+
+		<!-- Part of Cloud  -->
+		<path id="SVGWI02_cloud_part" fill="#FFFFFF" d="M19.527-5.251C18.24-9.21,14.581-11.87,10.42-11.87c-0.324,0-0.646,0.023-0.967,0.055
+		c-0.885-4.372-4.756-7.673-9.385-7.673c-4.634,0-8.509,3.309-9.388,7.688c-0.366-0.042-0.733-0.071-1.101-0.071
+		c-4.161,0-7.82,2.658-9.105,6.617c-0.791,2.433-0.586,5.025,0.575,7.305c0.848,1.663,2.132,3.008,3.709,3.923
+		c-0.738,1.667-0.985,3.513-0.693,5.357c0.4,2.526,1.76,4.746,3.829,6.249c1.647,1.196,3.591,1.83,5.623,1.83
+		c2.374,0,4.648-0.892,6.388-2.446c1.751,1.604,4.063,2.525,6.477,2.525c2.031,0,3.976-0.632,5.623-1.829
+		c3.711-2.696,4.913-7.578,3.13-11.614c1.626-0.916,2.95-2.289,3.817-3.99C20.113-0.224,20.317-2.819,19.527-5.251z"
+		/>
+
+		<!-- Cloud Set (3 Parts assembled)  -->
+		<clipPath id="SVGWI02_cloud">
+			<use x="28" y="52" xlink:href="#SVGWI02_cloud_part" />
+			<use x="72" y="52" xlink:href="#SVGWI02_cloud_part" />
+			<use x="-35" y="-35" xlink:href="#SVGWI02_cloud_part" transform="scale(1.4) rotate(180)" />
+		</clipPath>
+	</defs>
+
+	<!-- Sun Circle -->
+	<circle fill="url(#SVGWI02_sun_color)" cx="70" cy="40" r="13"/>
+
+	<!-- Sun Rays Group. The set of 20 rays, rotated each with multiples of 18 degrees. "SVGWI02_ray1" and "SVGWI02_ray2" are shapped and colored differently -->
+	<g id="SVGWI02_ray_set" transform="translate(70,40)">
+		<use transform="rotate(0)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(36)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(72)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(108)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(144)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(180)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(216)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(252)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(288)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(324)" xlink:href="#SVGWI02_ray1" />
+		<use transform="rotate(18)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(54)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(90)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(126)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(162)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(198)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(234)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(270)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(306)" xlink:href="#SVGWI02_ray2" />
+		<use transform="rotate(342)" xlink:href="#SVGWI02_ray2" />
+	</g>
+
+	<!-- Cloud inserted here as clip path -->
+	<rect width="100" height="100" fill="url(#SVGWI02_cloud_color)" clip-path="url(#SVGWI02_cloud)" transform="translate(-3, 15) scale(.95)" />
+
+	<!-- JavaScript takes care the entire animation part -->
+	<script type="text/javascript"><![CDATA[
+		!function(){function m(a){h[a].curLength+=(h[a].curTarget-h[a].curLength)/b,h[a].target.setAttribute("stroke-dashoffset",h[a].curLength),h[a].curLength>h[a].curTarget-.3&&h[a].curLength<h[a].curTarget+.3&&(h[a].curTarget==2*l?h[a].curTarget=l:h[a].curTarget=2*l)}function n(){requestAnimationFrame(n),g+=c,i.setAttribute("transform","rotate("+g+")"),m(0),m(1),k.transform.baseVal.appendItem(j.createSVGTransformFromMatrix(j.createSVGMatrix().rotate(a)))}for(var a=.5,b=.5,c=.5,d=0,e=["ms","moz","webkit","o"],f=0;f<e.length&&!window.requestAnimationFrame;++f)window.requestAnimationFrame=window[e[f]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[e[f]+"CancelAnimationFrame"]||window[e[f]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(a,b){var c=(new Date).getTime(),e=Math.max(0,16-(c-d)),f=window.setTimeout(function(){a(c+e)},e);return d=c+e,f}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)}),b=Math.max(1/b*7,3);var g=0,h=[],i=document.getElementById("SVGWI02_cloud_part"),j=document.getElementById("SVGWI02"),k=document.getElementById("SVGWI02_ray_set"),l=document.getElementById("SVGWI02_ray1").getTotalLength();h.push({curLength:l,curTarget:l,target:document.getElementById("SVGWI02_ray1")}),h.push({curLength:2*l,curTarget:2*l,target:document.getElementById("SVGWI02_ray2")}),h[0].target.setAttribute("stroke-dasharray",l),h[0].target.setAttribute("stroke-dashoffset",l),h[1].target.setAttribute("stroke-dasharray",l),h[1].target.setAttribute("stroke-dashoffset",l),n()}();
+	]]></script>
+</svg>
