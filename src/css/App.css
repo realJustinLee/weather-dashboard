@@ -14,3 +14,8 @@ hr {
     font-weight: 400;
     font-size: 150px;
 }
+
+#temperature-now {
+    font-weight: 400;
+    font-size: 60px;
+}
