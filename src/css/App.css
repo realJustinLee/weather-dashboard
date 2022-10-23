@@ -9,3 +9,8 @@ hr {
     background-image: -webkit-linear-gradient(left, #0000ff, #00ffff, #0000ff);
     background-image: linear-gradient(to right, #0000ff, #00ffff, #0000ff);
 }
+
+#time {
+    font-weight: 400;
+    font-size: 150px;
+}

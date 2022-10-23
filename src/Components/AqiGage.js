@@ -57,7 +57,7 @@ class AqiGage extends Component {
 
     render() {
         return (
-            <div className="center-block" id="aqi-indicator"></div>
+            <div id="aqi-indicator"></div>
         );
     }
 }

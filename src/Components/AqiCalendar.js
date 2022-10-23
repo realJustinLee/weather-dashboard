@@ -36,15 +36,15 @@ class AqiCalendar extends Component {
 
     render() {
         return (
-            <div className="col-sm-8 text-start">
-                <div className="h1 my-3" id="city">{this.props.city} · {this.props.district}</div>
+            <div className="col-sm-10 text-start">
+                <div className="h2 my-3" id="city">{this.props.city} · {this.props.district}</div>
                 <div className="row my-4">
                     <div className="col-sm-8">
-                        <h1 id="time">{this.state.time_text}</h1>
-                        <h1 id="date">{this.state.date_text}</h1>
-                        <h1 id="lunar-date">农历 {this.state.lunar_date}</h1>
+                        <div id="time">{this.state.time_text}</div>
+                        <h2 id="date">{this.state.date_text}</h2>
+                        <h2 id="lunar-date">农历 {this.state.lunar_date}</h2>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-4 row align-content-end">
                         <AqiGage
                             aqi={this.props.aqi}
                         />

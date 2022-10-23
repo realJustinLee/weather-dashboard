@@ -5,7 +5,7 @@ import $ from "jquery";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/weather.css'
-import './css/widget.css'
+import './css/App.css'
 import ForecastWidget from "./Components/ForecastWidget";
 
 class App extends Component {
@@ -122,7 +122,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="container mt-5">
-                    <div className="row ms-4">
+                    <div className="row ms-3">
                         <AqiCalendar
                             city={this.state.city}
                             district={this.state.district}
