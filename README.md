@@ -21,11 +21,20 @@ The weather dashboard meant to run on RSBP
 
 Run the following code in the terminal to install and run the project.
 
-```
+```shell
 git clone https://github.com/realJustinLee/weather-dashboard.git
 cd weather-dashboard
-npm run reinstall
-npm start
+
+cat>~/.env<<EOF
+REACT_APP_HE_KEY=<your_he_key>
+REACT_APP_CITY=<city>
+REACT_APP_DISTRICT=<district>
+REACT_APP_STATION=<station>
+EOF
+
+npm run rebuild
+npm install -g serve
+serve -s build
 ```
 
 ## Screen Shots
