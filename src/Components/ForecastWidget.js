@@ -14,8 +14,7 @@ class ForecastWidget extends Component {
                 <h2 id="day">{this.props.day}</h2>
                 <div className="icon-wrapper" id="icon">
                     <img src={"./img/" + this.props.forecast.iconD + ".png"} height="135" width="135" alt=""/>
-                    <img src={"./img/" + this.props.forecast.iconN + ".png"} height="135" width="135" alt=""/>
-                    {this.props.forecast.iconN === "" ? (
+                    {this.props.forecast.iconN !== null ? (
                         <img src={"./img/" + this.props.forecast.iconN + ".png"} height="135" width="135" alt=""/>
                     ) : (<img alt=""/>)}
                 </div>

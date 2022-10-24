@@ -108,8 +108,8 @@ class App extends Component {
                     temp: (forecast[i].tmp_min + "°C / " + forecast[i].tmp_max + "°C").toString(),
                     //"wind": "东风3-4级", TODO 也可能是“东北风微风”，不应该加“级”
                     wind: (forecast[i].wind_dir + forecast[i].wind_sc + "级").toString(),
-                    iconD: iconNStr,
-                    iconN: iconDStr,
+                    iconD: iconDStr,
+                    iconN: iconNStr,
                 };
             }
 
