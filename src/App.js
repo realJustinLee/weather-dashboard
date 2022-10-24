@@ -12,10 +12,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            he_key: "53de4cf13c644f7b92924b934d7c3610",
-            city: "上海",
-            district: "浦东新区",
-            station: "浦东新区监测站",
+            he_key: process.env.REACT_APP_HE_KEY,
+            city: process.env.REACT_APP_CITY,
+            district: process.env.REACT_APP_DISTRICT,
+            station: process.env.REACT_APP_STATION,
             weather_icon: "sunny",
             forecast: [],
             temp: 0,
