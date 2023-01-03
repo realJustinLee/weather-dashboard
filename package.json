@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.1",
+    "jquery": "^3.6.3",
     "justgage": "^1.6.1",
     "moment": "^2.29.4",
     "raphael": "^2.3.0",
