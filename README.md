@@ -4,7 +4,7 @@ The weather dashboard meant to run on RSBP
 
 ## Main Requirements
 
-> - node.js `v19.5.0`
+> - node.js `v19.6.1`
 > - react.js `18.2.0`
 > - bootstrap '5.2.3'
 
