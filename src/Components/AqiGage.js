@@ -53,9 +53,6 @@ export default function AqiGage({gageId, aqi}) {
                 counter: true
             })
         }
-        return () => {
-            gage.destroy();
-        };
     }, [gageId, aqi]);
 
     return (
