@@ -63,6 +63,7 @@ export default function App() {
         $.get(url, (result) => {
             let forecast = result.daily;
             let weatherStr, iconDayStr, iconNightStr = null;
+            let newForecastList = [];
             for (let i = 0; i < 3; ++i) {
                 if (forecast[i].textDay !== forecast[i].textNight) {
                     weatherStr = forecast[i].textDay + "转" + forecast[i].textNight;
@@ -77,7 +78,7 @@ export default function App() {
                     iconDayStr = forecast[i].iconDay.toString();
                 }
 
-                forecastList[i] = {
+                newForecastList[i] = {
                     weather: (weatherStr).toString(),
                     temp: (forecast[i].tempMin + "°C / " + forecast[i].tempMax + "°C").toString(),
                     windDay: (forecast[i].windDirDay + forecast[i].windScaleDay + "级").toString(),
@@ -86,7 +87,7 @@ export default function App() {
                     iconNight: iconNightStr,
                 };
             }
-            setForecastList(forecastList);
+            setForecastList(newForecastList);
         })
     }
 

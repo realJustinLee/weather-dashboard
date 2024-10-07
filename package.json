@@ -1,6 +1,6 @@
 {
   "name": "weather-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.5.0",
