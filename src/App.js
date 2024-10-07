@@ -1,65 +1,39 @@
-import {Component} from "react";
+import React, {useEffect, useState} from "react";
 import AqiCalendar from "./Components/AqiCalendar";
 import TempWeatherIcon from "./Components/TempWeatherIcon";
+import ForecastWidget from "./Components/ForecastWidget";
 import $ from "jquery";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/weather.css'
 import './css/App.css'
-import ForecastWidget from "./Components/ForecastWidget";
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            he_key: process.env.REACT_APP_HE_KEY,
-            city: process.env.REACT_APP_CITY,
-            district: process.env.REACT_APP_DISTRICT,
-            station: process.env.REACT_APP_STATION,
-            weather_icon: "sunny",
-            forecast: [],
-            temp: 0,
-            aqi: 0,
-        }
-        this.updateAqi = this.updateAqi.bind(this);
-        this.updateWeather = this.updateWeather.bind(this);
-    }
+export default function App() {
+    const api = process.env.REACT_APP_Q_API
+    const key = process.env.REACT_APP_Q_KEY;
+    const location = process.env.REACT_APP_LOCATION;
+    const locationId = process.env.REACT_APP_LOCATION_ID;
 
-    componentDidMount() {
-        this.updateAqi();
-        this.updateWeather();
-        setInterval(this.updateAqi, 1000 * 60 * 10);
-        setInterval(this.updateWeather, 1000 * 60 * 10);
-    }
+    const [weatherIcon, setWeatherIcon] = useState("sunny");
+    const [forecastList, setForecastList] = useState([]);
+    const [temperature, setTemperature] = useState(0);
+    const [aqi, setAqi] = useState(0);
 
-    updateAqi() {
-        const node = this;
-        const url = "https://free-api.heweather.com/s6/air/now?location=" + this.state.city + "&key=" + this.state.he_key;
-        $.getJSON(url, function (data) {
-            let result = data.HeWeather6[0];
-            // AQI
-            for (let i = 0; i < result.air_now_station.length; i++) {
-                let v = result.air_now_station[i];
-                if (v.air_sta === node.state.station) {
-                    node.setState({
-                        aqi: v.aqi,
-                    })
-                }
-            }
-        });
-    }
+    useEffect(() => {
+        updateWeatherNow();
+        updateAqiNow();
+        updateForecast();
+        setInterval(updateWeatherNow, 1000 * 60 * 3);
+        setInterval(updateAqiNow, 1000 * 60 * 5);
+        setInterval(updateForecast, 1000 * 60 * 10);
+    })
 
-    updateWeather() {
-        const node = this;
-        const url = "https://free-api.heweather.com/s6/weather?location=" + this.state.city + "&key=" + this.state.he_key;
-        $.getJSON(url, function (data) {
-            // 天气动画
-            let result = data.HeWeather6[0];
-
-            // 天气动画
-            let code = result.now.cond_code;
-            let myDate = new Date();
-            let currentHour = myDate.getHours();
+    function updateWeatherNow() {
+        const url = api + "/weather/now?location=" + locationId + "&key=" + key;
+        $.get(url, (result) => {
+            let code = result.now.icon;
+            let currentDate = new Date();
+            let currentHour = currentDate.getHours();
             let daylight = !(currentHour > 17 || currentHour < 6);
             let animation = "sunny";
             if (code === '100') {
@@ -79,82 +53,81 @@ class App extends Component {
             } else if (code >= 400 && code <= 407) {
                 animation = "snowy"
             }
-            // 当前
-            let now = result.now;
-            node.setState({
-                weather_icon: animation,
-                temp: now.tmp,
-            })
-
-            let forecast = result.daily_forecast;
-            let weatherStr, iconDStr, iconNStr = null;
-            let forecast_list = node.state.forecast;
-            for (let i = 0; i < 3; ++i) {
-                if (forecast[i].cond_txt_d !== forecast[i].cond_txt_n) {
-                    weatherStr = forecast[i].cond_txt_d + "转" + forecast[i].cond_txt_n;
-                    iconDStr = forecast[i].cond_code_d.toString();
-                    let icon_code_night = forecast[i].cond_code_n;
-                    if (icon_code_night === 100 || icon_code_night === 103) {
-                        icon_code_night = icon_code_night + "_night";
-                    }
-                    iconNStr = icon_code_night.toString();
-                } else {
-                    weatherStr = forecast[i].cond_txt_d;
-                    iconDStr = forecast[i].cond_code_d.toString();
-                }
-
-                forecast_list[i] = {
-                    weather: (weatherStr).toString(),
-                    temp: (forecast[i].tmp_min + "°C / " + forecast[i].tmp_max + "°C").toString(),
-                    //"wind": "东风3-4级", TODO 也可能是“东北风微风”，不应该加“级”
-                    wind: (forecast[i].wind_dir + forecast[i].wind_sc + "级").toString(),
-                    iconD: iconDStr,
-                    iconN: iconNStr,
-                };
-            }
-
-            node.setState({
-                forecast: forecast_list,
-            })
-        });
+            setWeatherIcon(animation);
+            setTemperature(result.now.temp);
+        })
     }
 
-    render() {
-        return (
-            <div className="App">
-                <div className="container mt-5">
-                    <div className="row ms-3">
-                        <AqiCalendar
-                            city={this.state.city}
-                            district={this.state.district}
-                            aqi={this.state.aqi}
+    function updateForecast() {
+        const url = api + "/weather/3d?location=" + locationId + "&key=" + key;
+        $.get(url, (result) => {
+            let forecast = result.daily;
+            let weatherStr, iconDayStr, iconNightStr = null;
+            for (let i = 0; i < 3; ++i) {
+                if (forecast[i].textDay !== forecast[i].textNight) {
+                    weatherStr = forecast[i].textDay + "转" + forecast[i].textNight;
+                    iconDayStr = forecast[i].iconDay.toString();
+                    let iconNight = forecast[i].iconNight;
+                    if (iconNight === 100 || iconNight === 103) {
+                        iconNight = iconNight + "_night";
+                    }
+                    iconNightStr = iconNight.toString();
+                } else {
+                    weatherStr = forecast[i].textDay;
+                    iconDayStr = forecast[i].iconDay.toString();
+                }
+
+                forecastList[i] = {
+                    weather: (weatherStr).toString(),
+                    temp: (forecast[i].tempMin + "°C / " + forecast[i].tempMax + "°C").toString(),
+                    windDay: (forecast[i].windDirDay + forecast[i].windScaleDay + "级").toString(),
+                    windNight: (forecast[i].windDirNight + forecast[i].windScaleNight + "级").toString(),
+                    iconDay: iconDayStr,
+                    iconNight: iconNightStr,
+                };
+            }
+            setForecastList(forecastList);
+        })
+    }
+
+    function updateAqiNow() {
+        const url = api + "/air/now?location=" + locationId + "&key=" + key;
+        $.get(url, (result) => {
+            setAqi(result.now.aqi);
+        })
+    }
+
+    return (
+        <div className="App">
+            <div className="container mt-5">
+                <div className="row ms-3">
+                    <AqiCalendar
+                        location={location}
+                        aqi={aqi}
+                    />
+                    <TempWeatherIcon
+                        weatherIcon={weatherIcon}
+                        temperature={temperature}
+                    />
+                </div>
+                <hr className="my-4"/>
+                <div className="bottom">
+                    <div className="row">
+                        <ForecastWidget
+                            day={"今天"}
+                            forecast={forecastList[0]}
                         />
-                        <TempWeatherIcon
-                            weather_icon={this.state.weather_icon}
-                            temp={this.state.temp}
+                        <ForecastWidget
+                            day={"明天"}
+                            forecast={forecastList[1]}
                         />
-                    </div>
-                    <hr className="my-4"/>
-                    <div className="bottom">
-                        <div className="row">
-                            <ForecastWidget
-                                day={"今天"}
-                                forecast={this.state.forecast[0]}
-                            />
-                            <ForecastWidget
-                                day={"明天"}
-                                forecast={this.state.forecast[1]}
-                            />
-                            <ForecastWidget
-                                day={"后天"}
-                                forecast={this.state.forecast[2]}
-                            />
-                        </div>
+                        <ForecastWidget
+                            day={"后天"}
+                            forecast={forecastList[2]}
+                        />
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
-
-export default App;
