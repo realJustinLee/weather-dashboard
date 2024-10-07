@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean": "rm -rf node_modules && rm -rf build && rm -f package-lock.json",
-    "reinstall": "npm run clean && npm install --legacy-peer-deps",
+    "reinstall": "npm run clean && npm install",
     "rebuild": "npm run reinstall && npm run build"
   },
   "eslintConfig": {
