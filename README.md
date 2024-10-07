@@ -27,10 +27,10 @@ git clone https://github.com/realJustinLee/weather-dashboard.git
 cd weather-dashboard
 
 cat>~/.env<<EOF
-REACT_APP_HE_KEY=<your_he_key>
-REACT_APP_CITY=<city>
-REACT_APP_DISTRICT=<district>
-REACT_APP_STATION=<station>
+REACT_APP_Q_API=https://devapi.qweather.com/v7/
+REACT_APP_Q_KEY=<key>
+REACT_APP_LOCATION=<location_string>
+REACT_APP_LOCATION_ID=<location_id>
 EOF
 
 npm run rebuild
@@ -49,4 +49,4 @@ The Dashboard
 
 # Made with ❤ by [Justin Lee](https://github.com/realJustinLee)!
 
-™ and © 1997-2022 Justin Lee. All Rights Reserved. [License Agreement](./LICENSE)
+™ and © 1997-2024 Justin Lee. All Rights Reserved. [License Agreement](./LICENSE)
