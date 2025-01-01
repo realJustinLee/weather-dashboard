@@ -26,7 +26,7 @@ Run the following code in the terminal to install and run the project.
 git clone https://github.com/realJustinLee/weather-dashboard.git
 cd weather-dashboard
 
-cat>~/.env<<EOF
+cat>./.env<<EOF
 REACT_APP_Q_API=https://devapi.qweather.com/v7/
 REACT_APP_Q_KEY=<key>
 REACT_APP_LOCATION=<location_string>
